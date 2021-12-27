@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="488.0" prefWidth="600.0" style="-fx-background-color: #fafafa;" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.courswork.Controller">
+
+   <children>
+      <AnchorPane maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="46.0" prefWidth="600.0" style="-fx-background-color: #00bcd4;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label alignment="CENTER" contentDisplay="CENTER" layoutX="189.0" layoutY="4.0" text="Tourist vouchers" textAlignment="CENTER" textFill="#fafafa" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <font>
+                  <Font name="Arial Black" size="24.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <ScrollPane layoutY="46.0" prefHeight="441.0" prefWidth="178.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="47.0">
+         <content>
+            <AnchorPane prefHeight="383.0" prefWidth="158.0">
+               <children>
+                  <ComboBox fx:id="switchCountry" layoutX="22.0" layoutY="8.0" prefHeight="26.0" prefWidth="120.0" promptText="Country" />
+                  <ComboBox fx:id="switchTypeOfResort" layoutX="22.0" layoutY="41.0" prefHeight="26.0" prefWidth="120.0" promptText="Type of resort" />
+                  <ComboBox fx:id="switchTypeOfTrip" layoutX="22.0" layoutY="74.0" prefHeight="26.0" prefWidth="120.0" promptText="Type of trip" />
+                  <ComboBox fx:id="switchMeal" layoutX="22.0" layoutY="108.0" prefHeight="26.0" prefWidth="120.0" promptText="Meal" />
+                  <ComboBox fx:id="switchTransfer" layoutX="22.0" layoutY="141.0" prefHeight="18.0" prefWidth="120.0" promptText="Transfer" />
+                  <Label layoutX="22.0" layoutY="177.0" prefHeight="18.0" prefWidth="41.0" text="Price:">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="PriceFrom" layoutX="22.0" layoutY="195.0" prefHeight="26.0" prefWidth="54.0" promptText="0" />
+                  <Label layoutX="78.0" layoutY="197.0" prefHeight="22.0" prefWidth="6.0" text="-" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="18.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="PriceTo" layoutX="87.0" layoutY="195.0" prefHeight="26.0" prefWidth="54.0" promptText="20000" />
+                  <Label layoutX="15.0" layoutY="316.0" prefHeight="18.0" prefWidth="41.0" text="Days:">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  
+                                          <Button fx:id="SubmitChooseBtn" alignment="CENTER" layoutX="11.0" layoutY="347.0" mnemonicParsing="false" onAction="#SubmitChoose" prefHeight="30.0" prefWidth="63.0" text="Submit" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Button>
+                  <TextField fx:id="Days" layoutX="87.0" layoutY="312.0" prefHeight="18.0" prefWidth="42.0" promptText="5" />
+                  <Label layoutX="15.0" layoutY="287.0" prefHeight="18.0" prefWidth="66.0" text="Pouole(s):">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="People" focusTraversable="false" layoutX="87.0" layoutY="283.0" prefHeight="18.0" prefWidth="42.0" promptText="2" />
+                  <Button fx:id="ClearChooseBtn" alignment="CENTER" layoutX="87.0" layoutY="347.0" mnemonicParsing="false" onAction="#ClearChoose" prefHeight="30.0" prefWidth="63.0" text="Clear" textAlignment="CENTER">
+                     <font>
+                        <Font name="Calibri" size="14.0" />
+                     </font>
+                  </Button>
+                  <RadioButton fx:id="ECrbtn" layoutX="5.0" layoutY="228.0" mnemonicParsing="false" onAction="#PriceSortBtn" prefHeight="21.0" prefWidth="150.0" text="expensive-cheaper" wrapText="true">
+                     <toggleGroup>
+                        <ToggleGroup fx:id="Price" />
+                     </toggleGroup>
+                  </RadioButton>
+                  <RadioButton fx:id="CErbtn" layoutX="6.0" layoutY="258.0" mnemonicParsing="false" onAction="#PriceSortBtn" prefHeight="18.0" prefWidth="150.0" text="cheaper-expensive" toggleGroup="$Price" />
+               </children>
+            </AnchorPane>
+         </content>
+      </ScrollPane>
+      <ScrollPane layoutX="179.0" layoutY="47.0" prefHeight="441.0" prefWidth="421.0" style="-fx-background-color: #fafafa;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="179.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="47.0">
+         <content>
+            <Label fx:id="text">
+               <font>
+                  <Font name="Calibri Light" size="16.0" />
+               </font>
+            </Label>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>
