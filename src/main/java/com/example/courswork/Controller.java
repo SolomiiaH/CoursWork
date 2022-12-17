@@ -67,7 +67,7 @@ public class Controller implements Initializable {
         switchCountry.setItems(FXCollections.observableArrayList("Country","Egypt","Turkey","Greece"));
         switchCountry.setValue("Country");
 
-        switchTypeOfResort.setItems(FXCollections.observableArrayList("Type of resort","Excursions","Cruise","Rest"));
+        switchTypeOfResort.setItems(FXCollections.observableArrayList("Type of resort","Excursions","Cruise","Rest", "Shopping"));
         switchTypeOfResort.setValue("Type of resort");
 
         switchTypeOfTrip.setItems(FXCollections.observableArrayList("Type of trip","All In","Standard","Luxury"));
@@ -220,7 +220,7 @@ public class Controller implements Initializable {
     public static String toStringTrips(List<Trips> sortedTrip){
         String TripsText="";
         for(Trips i : sortedTrip){
-            TripsText = TripsText.concat(i.getInfo());
+            TripsText = TripsText.concat(i.toString());
         }
         return TripsText;
     }
@@ -246,9 +246,5 @@ public class Controller implements Initializable {
             });
         }
     }
-
-
-
-
 
 }

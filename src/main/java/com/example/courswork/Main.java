@@ -6,12 +6,14 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.LinkedList;
 import java.util.List;
 
 public class Main extends Application {
-
+    static DBcommands db_trips = new DBcommands();
     static List<Trips> trips = new ArrayList<>();
     static List<Trips> tripSorted = new ArrayList<>();
 
@@ -28,13 +30,20 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        trips.add(new Trips("Egypt", 1000, 3,7 ,"Excursions", "All In", "Bus", "All In"));
-        trips.add(new Trips("Egypt", 500, 2,5 ,"Excursions", "Standard", "Airplane", "Breakfast"));
-        trips.add(new Trips("Turkey", 900, 2, 7,"Cruise","All In", "Airplane", "Breakfast"));
-        trips.add(new Trips("Turkey", 450, 1, 10,"Rest","Luxury", "Train", "Standard"));
 
+        String query = "SELECT * FROM trips";
 
+        try{
+            Statement statement = db_trips.getConnection().createStatement();
+            ResultSet ResSet = statement.executeQuery(query);
 
+            while(ResSet.next()){
+                trips.add(new Trips(ResSet.getString(2), ResSet.getInt(3), ResSet.getInt(4),ResSet.getInt(5) ,ResSet.getString(6), ResSet.getString(7), ResSet.getString(8), ResSet.getString(9)));
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+        }
         launch();
     }
 }

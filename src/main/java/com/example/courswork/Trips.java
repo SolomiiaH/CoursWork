@@ -1,4 +1,6 @@
 package com.example.courswork;
+import java.sql.*;
+import java.sql.Connection;
 
 public class Trips {
     int Price;//
@@ -23,7 +25,8 @@ public class Trips {
         this.Meal=Meal;
     }
 
-    public String getInfo(){
+    @Override
+    public String toString(){
 //        System.out.println(
 //                "    From Ukraine to "+Country+"\n"
 //                +"Price: "+Price+"\n"
@@ -71,6 +74,10 @@ public class Trips {
         return Days;
     }
 
+    public String getTypeOfResort() {
+        return TypeOfResort;
+    }
+
 
     public void setCountry(String country) {
         Country = country;
@@ -104,21 +111,5 @@ public class Trips {
         TypeOfTrip = typeOfTrip;
     }
 
-    public String getTypeOfResort() {
-        return TypeOfResort;
-    }
 
-    @Override
-    public String toString() {
-        return "Trips{" +
-                "Price=" + Price +
-                ", Country='" + Country + '\'' +
-                ", NumOfPeople=" + NumOfPeople +
-                ", Days=" + Days +
-                ", TypeOfTrip='" + TypeOfTrip + '\'' +
-                ", TypeOfResort='" + TypeOfResort + '\'' +
-                ", TypeOfTransfer='" + TypeOfTransfer + '\'' +
-                ", Meal='" + Meal + '\'' +
-                '}';
-    }
 }
